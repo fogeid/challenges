@@ -52,6 +52,7 @@ const AppForm = {
         getPhoto() {            
             if (this.breed === '' | this.font === '' | this.color === '' | this.name === '') {
                 this.data.msg = "Preencha todos os campos.";
+                this.data.active = true;
                 this.$emit("data", this.data);
             } else {
                 fetch(`https://dog.ceo/api/breed/${this.breed}/images/random`)
