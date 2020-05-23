@@ -1,24 +1,27 @@
 // Gerais
 @import '_reset.scss';
 @import '_bootstrap.scss';
+@import '_responsividade.scss';
 @import '_colors.scss';
 @import '_font.scss';
-@import '_responsividade.scss';
 
 body {
-    background-color: $color-secondary;
+    background-color: $color-secondary;    
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 #app {
-    font-family: $font-site;
+    font-family: $font-site;      
 }
 
 .container-fluid {
-    max-width: 90%;
+    max-width: 90%;    
 }
 
 // Header
-.header {    
+.header {        
     .header__title {
         font-size: 1rem;
         text-align: center;
@@ -30,7 +33,10 @@ body {
 
 // Form
 .form {
-    padding-bottom: 10px;
+    height: 800px;
+    @include device(desktop) {
+        height: 540px;
+    }
     background-color: $color-background;
     .form__img {
         max-width: 100%;
@@ -79,5 +85,6 @@ body {
         text-align: center;
         color: $color-text-primary;
         padding: 10px;
+        margin-bottom: 0;
     }
 }
