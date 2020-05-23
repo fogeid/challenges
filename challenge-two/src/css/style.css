@@ -10913,23 +10913,36 @@ body {
   background-color: #1C1C1C;
 }
 
-/* line 56, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+/* line 55, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+.generator .ativo {
+  display: none;
+}
+
+/* line 59, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .generator .generator__img img {
   max-width: 100%;
 }
 
-/* line 60, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
-.generator .generator__info {
-  margin-top: 10px;
+/* line 62, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+.generator .generator__img .generator__img__name {
+  z-index: 10;
+  font-size: 2rem;
+  color: white;
+  margin-top: -50px;
 }
 
-/* line 66, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+/* line 69, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+.generator .generator__info {
+  margin-top: 50px;
+}
+
+/* line 75, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .footer {
   margin-top: auto;
   background-color: #2E2E2E;
 }
 
-/* line 69, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+/* line 78, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .footer .footer__title {
   text-align: center;
   color: #FFFFFF;

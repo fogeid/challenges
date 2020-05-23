@@ -52,13 +52,22 @@ body {
     text-align: center;
     color: $color-text-primary;
     background-color: $color-background;
+    .ativo {
+        display: none;
+    }
     .generator__img {
         img {
             max-width: 100%;
-        }        
+        }
+        .generator__img__name {
+            z-index: 10;
+            font-size: 2rem;
+            color: white;
+            margin-top: -50px;      
+        }
     }
     .generator__info {
-        margin-top: 10px;
+        margin-top: 50px;
     }
 }
 

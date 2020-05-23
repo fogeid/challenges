@@ -25,7 +25,16 @@ const AppForm = {
             font: '',
             color: '',
             name: '',
-            img: ''
+            data: {
+                img: '',
+                msg: '',
+                name: '',
+                style: {
+                    fontFamily: '',
+                    color: '',
+                },
+                ativo: true
+            },
         }
     },
     created() {
@@ -39,15 +48,25 @@ const AppForm = {
                 this.dados = res;                            
             })                        
         },
-        getPhoto() {
-            fetch(`https://dog.ceo/api/breed/${this.breed}/images/random`)
-            .then(res => res.json())
-            .then(res => {
-                this.img = res.message;                            
-                this.$emit("data", this.img);
-            })
+        getPhoto() {            
+            if (this.breed === '' | this.font === '' | this.color === '' | this.name === '') {
+                this.data.msg = "Preencha todos os campos.";
+                this.$emit("data", this.data);
+            } else {
+                fetch(`https://dog.ceo/api/breed/${this.breed}/images/random`)
+                .then(res => res.json())
+                .then(res => {
+                    this.data.img = res.message;
+                    this.data.msg = "Salvo com sucesso!"
+                    this.data.name = this.name;
+                    this.data.ativo = false;
+                    this.data.style.fontFamily = this.font;
+                    this.data.style.color = this.color;
+                    this.$emit("data", this.data);
+                });                    
+            };       
         },
-        testes() {
+        generatorPhoto() {
             this.getPhoto();
         }
     },
@@ -94,9 +113,10 @@ const AppForm = {
                     <input v-model="name"
                            class="input__name form-control"
                            type="text"
+                           value=""
                            placeholder="Digite um nome para o DOG!" />
                 </div>
-                <button @click="testes" type="button" class="btn btn-primary">Salvar</button>
+                <button @click="generatorPhoto" type="button" class="btn btn-primary">Salvar</button>
             </form>
         </div>
     `
@@ -106,11 +126,11 @@ const AppGenerator = {
     name: "AppGenerator",
     data() {
         return {
-            date: "",
-            hour: ""
+            date: '',
+            hour: '',
         }
     },
-    props: ["link", "msg"],
+    props: ["link", "msg", "name", "ativo", "stylename"],
     created() {
         this.getDate();
     },
@@ -127,9 +147,10 @@ const AppGenerator = {
     },
     template: `
         <div>
-            <div class="generator__img">
+            <div class="generator__img" >
                 <p>{{ msg }}</p>
-                <img :src="link" alt="Dog" />
+                <img :src="link" :class="{ ativo }" alt="Dog" />
+                <p :style="stylename" class="generator__img__name">{{ name }}</p>
             </div>
 
             <div class="generator__info">
@@ -157,7 +178,10 @@ let app = new Vue({
     el: "#app",
     data: {
         linkImg: '',
-        msg: ''
+        msg: '',
+        name: '',
+        style: {},
+        ativo: true
     },           
     components: {
         AppHeader,
@@ -168,8 +192,12 @@ let app = new Vue({
     },
     methods: {
         getDados(e) {
-            this.linkImg = e;
-            this.msg = "Salvo com sucesso!";
+            this.linkImg = e.img;
+            this.msg = e.msg;
+            this.name = e.name;
+            this.style = e.style;
+            this.ativo = e.ativo;
+            console.log(this.style);
         }
     }
 });
