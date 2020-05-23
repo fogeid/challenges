@@ -11,9 +11,12 @@
     <body>
         <div id="app">
             <div>
+                <!-- HEADER -->
                 <header class="header">
                     <app-header />
                 </header>
+
+                <!-- FORM -->
                 <section class="form">
                     <div class="container-fluid">
                         <div class="row d-flex align-items-center">
@@ -26,15 +29,19 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- PHOTO GENERATOR -->
                 <section class="generator">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm">
-                                <app-generator :link="linkImg" :msg="msg" :name="name" :ativo="ativo" :stylename="style" />
+                                <app-generator :link="linkImg" :msg="msg" :name="name" :active="active" :stylename="style" />
                             </div>
                         </div>
                     </div>                    
                 </section>
+
+                <!-- FOOTER -->
                 <footer class="footer">
                     <app-footer />
                 </footer>

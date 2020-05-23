@@ -25,6 +25,7 @@ const AppForm = {
             font: '',
             color: '',
             name: '',
+            active: true,
             data: {
                 img: '',
                 msg: '',
@@ -33,8 +34,7 @@ const AppForm = {
                     fontFamily: '',
                     color: '',
                 },
-                ativo: true
-            },
+            }
         }
     },
     created() {
@@ -60,7 +60,7 @@ const AppForm = {
                     this.data.img = res.message;
                     this.data.msg = "Salvo com sucesso!"
                     this.data.name = this.name;
-                    this.data.ativo = false;
+                    this.data.active = false;
                     this.data.style.fontFamily = this.font;
                     this.data.style.color = this.color;
                     this.$emit("data", this.data);
@@ -153,7 +153,7 @@ const AppGenerator = {
             hour: '',
         }
     },
-    props: ["link", "msg", "name", "ativo", "stylename"],
+    props: ["link", "msg", "name", "active", "stylename"],
     created() {
         this.getDate();
     },
@@ -172,7 +172,7 @@ const AppGenerator = {
         <div>
             <div class="generator__img" >
                 <p>{{ msg }}</p>
-                <img :src="link" :class="{ ativo }" alt="Dog" />
+                <img :src="link" :class="{ active }" alt="Dog" />
                 <p :style="stylename" class="generator__img__name">{{ name }}</p>
             </div>
 
@@ -204,7 +204,7 @@ let app = new Vue({
         msg: '',
         name: '',
         style: {},
-        ativo: true
+        active: true
     },           
     components: {
         AppHeader,
@@ -219,7 +219,7 @@ let app = new Vue({
             this.msg = e.msg;
             this.name = e.name;
             this.style = e.style;
-            this.ativo = e.ativo;
+            this.active = e.active;
             console.log(this.style);
         }
     }
