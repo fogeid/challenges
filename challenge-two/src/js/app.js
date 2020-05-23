@@ -169,7 +169,7 @@ const AppFooter = {
     },
     template: `
         <div>
-            <p class="footer__title">2020 © Developed by <a :href="github" class="footer__title__link">Diego Batista</a></p>
+            <p class="footer__title">2020 © Developed by <a :href="github" class="footer__title__link" target="_blank">Diego Batista</a></p>
         </div>
     `
 }
