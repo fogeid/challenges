@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teste para Desenvolvedor Frontend Jr Enext</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Chelsea+Market&family=Indie+Flower&family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div>
+                <header class="header">
+                    <app-header />
+                </header>
+                <section class="form">
+                    <div class="container-fluid">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-md-7">
+                                <app-img />
+                            </div>
+                            <div class="col-md-5">
+                                <app-form />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="generator">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <app-generator />
+                            </div>
+                        </div>
+                    </div>                    
+                </section>
+                <footer class="footer">
+                    <app-footer />
+                </footer>
+            </div>
+        </div>
+
+
+        <script type="module">
+            const AppHeader = {
+                name: "AppHeader",
+                template: `
+                    <div>
+                        <p class="header__title py-2">Teste para Desenvolvedor Frontend Jr Enext</p>                    
+                    </div>
+                `
+            };
+
+            const AppImg = {
+                name: "AppMain",
+                template: `
+                    <div>
+                        <img class="form__img" src="./img/dog_walking.svg" alt="People and Dog">                        
+                    </div>
+                `
+            }
+
+            const AppForm = {
+                name: "AppForm",
+                data() {
+                    return {
+                        dados: {},
+                        breed: "",
+                        font: "",
+                        color: "",
+                        name: ""
+                    }
+                },
+                created() {
+                    this.getDados();
+                },
+                methods: {
+                    getDados() {
+                        fetch("https://dog.ceo/api/breeds/list/all")
+                        .then(res => res.json())
+                        .then(res => {
+                            this.dados = res;
+                            console.log(this.dados);
+                        })
+                    }
+                },
+                template: `
+                    <div>
+                        <form class="form__inputs container-fluid py-4">
+                            <div class="form-group">
+                                <label>Escolha uma raça</label>
+                                <select class="input__breeds form-control" >
+                                    <option disabled selected>Selecione uma raça</option>
+                                    <option v-for="(valor, index) in dados.message"
+                                            :key="index"
+                                            v-model="breed">
+                                        {{ index }}
+                                    </option>                     
+                                </select>                                
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Escolha uma fonte</label>
+                                <select class="input__font form-control">
+                                    <option disabled selected>Selecione uma fonte</option>
+                                    <option value="Anton">Anton</option>
+                                    <option value="Bangers">Bangers</option>
+                                    <option value="Chelsea Market">Chelsea Market</option>
+                                    <option value="Indie Flower">Indie Flower</option>
+                                    <option value="Roboto">Roboto</option>                                                     
+                                </select>                                
+                            </div>
+
+                            <div class="form-group">
+                                <label>Escolha uma cor para fonte</label>
+                                <select class="input__color form-control">
+                                    <option disabled selected>Selecione uma cor</option>
+                                    <option value="red">Vermelho</option>
+                                    <option value="black">Preto</option>
+                                    <option value="white">Branco</option>
+                                    <option value="green">Verde</option>
+                                    <option value="blue">Azul</option>                                                 
+                                </select>                                
+                            </div>
+
+                            <div class="form-group">
+                                <input class="input__name form-control" type="text" placeholder="Digite um nome para o DOG!">
+                            </div>
+                            <button type="button" class="btn btn-primary">Salvar</button>
+                        </form>
+                    </div>
+                `
+            }
+
+            const AppGenerator = {
+                name: "AppGenerator",
+                template: `
+                    <div class="row">
+                        <div>
+                        </div>
+
+                        <div>
+                            {{ date }}
+                            {{ hour }}
+                        </div>
+                    </div>
+                `
+            }
+
+            const AppFooter = {
+                name: "AppFooter",
+                data() {
+                    return {
+                        github: 'https://github.com/fogeid',
+                    }
+                },
+                template: `
+                    <div>
+                        <p class="footer__title">2020 © Developed by <a :href="github" class="footer__title__link">Diego Batista</a></p>
+                    </div>
+                `
+            }
+
+            let app = new Vue({
+                el: "#app",               
+                components: {
+                    AppHeader,
+                    AppImg,
+                    AppForm,
+                    AppGenerator,
+                    AppFooter
+                }
+            });
+        </script>        
+    </body>
+</html>

@@ -1,0 +1,56 @@
+// Gerais
+@import '_reset.scss';
+@import '_bootstrap.scss';
+@import '_colors.scss';
+@import '_font.scss';
+@import '_responsividade.scss';
+
+body {
+    background-color: $color-secondary;
+}
+
+#app {
+    font-family: $font-site;
+}
+
+.container-fluid {
+    max-width: 90%;
+}
+
+// Header
+.header {
+    .header__title {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 0px;
+        color: $color-text-primary;
+        background-color: $color-header;
+    }
+}
+
+// Form
+.form {
+    background-color: $color-background;
+    .form__img {
+        max-width: 100%;
+        padding: 50px 0;
+    }
+    .form__inputs {
+        height: 400px;
+        border-radius: 10px;
+        background-color: $color-secondary;
+        label {
+            color: $color-text-primary;
+        }
+    }
+}
+
+// Footer
+.footer {
+    background-color: $color-secondary;    
+    .footer__title {
+        text-align: center;
+        color: $color-text-primary;
+        padding: 10px;
+    }
+}
