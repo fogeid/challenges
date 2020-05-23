@@ -10874,7 +10874,7 @@ body {
 
 /* line 22, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .header .header__title {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
   margin-bottom: 0px;
   color: #FFFFFF;
@@ -10883,33 +10883,53 @@ body {
 
 /* line 32, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .form {
+  padding-bottom: 10px;
   background-color: #1C1C1C;
 }
 
-/* line 34, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+/* line 35, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .form .form__img {
   max-width: 100%;
   padding: 50px 0;
 }
 
-/* line 38, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+/* line 39, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .form .form__inputs {
   height: 400px;
   border-radius: 10px;
   background-color: #2E2E2E;
 }
 
-/* line 42, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+/* line 43, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .form .form__inputs label {
   color: #FFFFFF;
 }
 
-/* line 49, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+/* line 50, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+.generator {
+  padding: 10px 0;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #1C1C1C;
+}
+
+/* line 56, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+.generator .generator__img img {
+  max-width: 100%;
+}
+
+/* line 60, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+.generator .generator__info {
+  margin-top: 10px;
+}
+
+/* line 66, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .footer {
+  margin-top: auto;
   background-color: #2E2E2E;
 }
 
-/* line 51, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
+/* line 69, ../../Desktop/challenges/challenges/challenge-two/src/css/scss/style.scss */
 .footer .footer__title {
   text-align: center;
   color: #FFFFFF;

@@ -18,9 +18,9 @@ body {
 }
 
 // Header
-.header {
+.header {    
     .header__title {
-        font-size: 1.5rem;
+        font-size: 1rem;
         text-align: center;
         margin-bottom: 0px;
         color: $color-text-primary;
@@ -30,6 +30,7 @@ body {
 
 // Form
 .form {
+    padding-bottom: 10px;
     background-color: $color-background;
     .form__img {
         max-width: 100%;
@@ -45,8 +46,25 @@ body {
     }
 }
 
+// Generator Img
+.generator {
+    padding: 10px 0;
+    text-align: center;
+    color: $color-text-primary;
+    background-color: $color-background;
+    .generator__img {
+        img {
+            max-width: 100%;
+        }        
+    }
+    .generator__info {
+        margin-top: 10px;
+    }
+}
+
 // Footer
 .footer {
+    margin-top: auto;
     background-color: $color-secondary;    
     .footer__title {
         text-align: center;
