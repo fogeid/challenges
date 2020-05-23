@@ -39,6 +39,7 @@ const AppForm = {
     },
     created() {
         this.getDados();
+        this.checkLocalStorage();
     },
     methods: {
         getDados() {
@@ -68,6 +69,28 @@ const AppForm = {
         },
         generatorPhoto() {
             this.getPhoto();
+        },
+        checkLocalStorage() {
+            if (window.localStorage.breed || window.localStorage.font || window.localStorage.color || window.localStorage.name) {
+                    this.breed = window.localStorage.breed;
+                    this.font = window.localStorage.font;
+                    this.color = window.localStorage.color;
+                    this.name = window.localStorage.name;
+            }
+        }
+    },
+    watch: {
+        breed() {
+            window.localStorage.breed = this.breed;
+        },
+        font() {
+            window.localStorage.font = this.font;
+        },
+        color() {
+            window.localStorage.color = this.color;
+        },
+        name() {
+            window.localStorage.name = this.name;
         }
     },
     template: `
